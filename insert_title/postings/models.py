@@ -6,3 +6,4 @@ class Posting1(models.Model):
     name = models.CharField(max_length=200)
     name2 = models.CharField(max_length=200)
     name3 = models.CharField(max_length=300)
+    name4 = models.CharField(max_length=200)
