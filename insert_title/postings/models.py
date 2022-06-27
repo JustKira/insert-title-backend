@@ -1,5 +1,8 @@
 from django.db import models
 
 # Create your models here.
-class Posting(models.Model):
-    name = models.CharField(max_length=100)
+
+class Posting1(models.Model):
+    name = models.CharField(max_length=200)
+    name2 = models.CharField(max_length=200)
+
