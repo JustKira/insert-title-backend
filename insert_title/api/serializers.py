@@ -8,9 +8,9 @@ from postings.models import Posting
 class PostingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posting
-        fields = ('id', 'company', 'recruiter', 'image', 'description', 'creation_date', 'pay_range', 'location', 'num_applicants')
+        fields = ('id', 'company', 'recruiter', 'image', 'description', 'creation_date', 'pay_range', 'location', 'num_applicants', 'position_title')
 
 class CreatePostingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posting
-        fields = ('company', 'recruiter', 'image', 'description', 'pay_range', 'location')
+        fields = ('company', 'position_title', 'recruiter', 'image', 'description', 'pay_range', 'location')
