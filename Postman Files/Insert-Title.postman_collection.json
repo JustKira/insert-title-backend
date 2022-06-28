@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "55957a59-28ff-4765-a1d8-74746701268e",
+		"name": "Insert-Title",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15148206"
+	},
+	"item": [
+		{
+			"name": "Get All Postings",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posting by ID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add Posting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/create?company=Test Company API&recruiter=Test Recruiter API",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"create"
+					],
+					"query": [
+						{
+							"key": "company",
+							"value": "Test Company API"
+						},
+						{
+							"key": "recruiter",
+							"value": "Test Recruiter API"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Posting",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "company",
+							"value": "\"Tester 2\"",
+							"type": "text"
+						},
+						{
+							"key": "recruiter",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "pay_range",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "location",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "num_applicants",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/update/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Posting",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/delete/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Company",
+			"value": "Test Company API"
+		}
+	]
+}
