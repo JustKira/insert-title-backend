@@ -2,8 +2,18 @@ from django.db import models
 
 # Create your models here.
 
-class Posting1(models.Model):
-    name = models.CharField(max_length=200)
-    name2 = models.CharField(max_length=200)
-    name3 = models.CharField(max_length=300)
-    name4 = models.CharField(max_length=200)
+class Posting(models.Model):
+    company = models.CharField(max_length=250)
+    recruiter = models.CharField(max_length=250)
+    image = models.ImageField(upload_to='postings/%Y/%m/%d/', null=True)
+    description = models.TextField()
+    position_title = models.CharField(max_length=150)
+
+    ##  Based on LinkedIn
+    # Auto adds creation date
+    creation_date = models.DateTimeField(auto_now_add=True)
+    # If 0, unpaid; if more than 0, paid (can be used to diffrentiate in postings frontend)
+    pay_range = models.CharField(max_length=250)
+    location = models.CharField(max_length=1000)
+    # Number of current applicants (can be used to encourage people)
+    num_applicants = models.IntegerField(default=0)

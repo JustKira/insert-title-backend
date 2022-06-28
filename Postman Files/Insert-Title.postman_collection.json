@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "55957a59-28ff-4765-a1d8-74746701268e",
+		"name": "Insert-Title",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15148206"
+	},
+	"item": [
+		{
+			"name": "Get All Postings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posting by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Posting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "company",
+							"value": "Test Company API",
+							"type": "text"
+						},
+						{
+							"key": "recruiter",
+							"value": "Test Recruiter API",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "http://127.0.0.1:8000/media/postings/2022/06/28/Passive-and-active-loop-filter-3_eROvj1b.png",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Lorem ipsum decor ali due koois",
+							"type": "text"
+						},
+						{
+							"key": "pay_range",
+							"value": "3600/month",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "England",
+							"type": "text"
+						},
+						{
+							"key": "num_applicants",
+							"value": "0",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "position_title",
+							"value": "Data Analyst",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Posting",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "company",
+							"value": "Tester2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "recruiter",
+							"value": "recruiter",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "not a description",
+							"type": "text"
+						},
+						{
+							"key": "pay_range",
+							"value": "5000/month",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "Sweden",
+							"type": "text"
+						},
+						{
+							"key": "num_applicants",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "position_title",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/update/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"update",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Posting",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/delete/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Company",
+			"value": "Test Company API"
+		}
+	]
+}
