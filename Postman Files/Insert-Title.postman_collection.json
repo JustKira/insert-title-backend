@@ -10,7 +10,22 @@
 			"name": "Get All Postings",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings"
+					]
+				}
 			},
 			"response": []
 		},
@@ -18,17 +33,9 @@
 			"name": "Get Posting by ID",
 			"request": {
 				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "Add Posting",
-			"request": {
-				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/postings/create?company=Test Company API&recruiter=Test Recruiter API",
+					"raw": "http://127.0.0.1:8000/api/postings/2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -40,17 +47,74 @@
 					"path": [
 						"api",
 						"postings",
-						"create"
-					],
-					"query": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Posting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
 						{
 							"key": "company",
-							"value": "Test Company API"
+							"value": "Test Company API",
+							"type": "text"
 						},
 						{
 							"key": "recruiter",
-							"value": "Test Recruiter API"
+							"value": "Test Recruiter API",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "http://127.0.0.1:8000/media/postings/2022/06/28/Passive-and-active-loop-filter-3_eROvj1b.png",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Lorem ipsum decor ali due koois",
+							"type": "text"
+						},
+						{
+							"key": "pay_range",
+							"value": "3600/month",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "England",
+							"type": "text"
+						},
+						{
+							"key": "num_applicants",
+							"value": "0",
+							"type": "text",
+							"disabled": true
 						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"create",
+						""
 					]
 				}
 			},
@@ -66,12 +130,13 @@
 					"formdata": [
 						{
 							"key": "company",
-							"value": "\"Tester 2\"",
-							"type": "text"
+							"value": "Tester2",
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "recruiter",
-							"value": "",
+							"value": "recruiter",
 							"type": "text",
 							"disabled": true
 						},
@@ -83,21 +148,18 @@
 						},
 						{
 							"key": "description",
-							"value": "",
-							"type": "text",
-							"disabled": true
+							"value": "not a description",
+							"type": "text"
 						},
 						{
 							"key": "pay_range",
-							"value": "",
-							"type": "text",
-							"disabled": true
+							"value": "5000/month",
+							"type": "text"
 						},
 						{
 							"key": "location",
-							"value": "",
-							"type": "text",
-							"disabled": true
+							"value": "Sweden",
+							"type": "text"
 						},
 						{
 							"key": "num_applicants",
@@ -108,7 +170,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/postings/update/2",
+					"raw": "http://127.0.0.1:8000/api/postings/update/4",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -121,7 +183,7 @@
 						"api",
 						"postings",
 						"update",
-						"2"
+						"4"
 					]
 				}
 			},
@@ -133,7 +195,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/postings/delete/1",
+					"raw": "http://127.0.0.1:8000/api/postings/delete/3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -146,7 +208,7 @@
 						"api",
 						"postings",
 						"delete",
-						"1"
+						"3"
 					]
 				}
 			},
