@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .serializers import PostingSerializer, Posting
+from .serializers import PostingSerializer, Posting, CreatePostingSerializer
 
 # Create your views here.
 class PostingGetAllView(generics.ListAPIView):
@@ -23,7 +23,7 @@ class PostingAddView(generics.CreateAPIView):
     # permission_classes = [IsAdminUser]
 
     queryset = Posting.objects.all()
-    serializer_class = PostingSerializer
+    serializer_class = CreatePostingSerializer
 
 class PostingUpdateView(generics.UpdateAPIView):
     # Add Authentication

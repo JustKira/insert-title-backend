@@ -7,6 +7,7 @@ class Posting(models.Model):
     recruiter = models.CharField(max_length=250)
     image = models.ImageField(upload_to='postings/%Y/%m/%d/', null=True)
     description = models.TextField()
+    position_title = models.CharField(max_length=150)
 
     ##  Based on LinkedIn
     # Auto adds creation date
