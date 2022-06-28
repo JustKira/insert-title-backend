@@ -97,6 +97,11 @@
 							"value": "0",
 							"type": "text",
 							"disabled": true
+						},
+						{
+							"key": "position_title",
+							"value": "Data Analyst",
+							"type": "text"
 						}
 					]
 				},
@@ -163,6 +168,12 @@
 						},
 						{
 							"key": "num_applicants",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "position_title",
 							"value": "",
 							"type": "text",
 							"disabled": true
