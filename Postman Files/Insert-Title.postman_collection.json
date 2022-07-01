@@ -224,6 +224,139 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "testusername",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "testemail@testdomain.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "testfirst",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "testlast",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testpassword",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "testpassword",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "testusername",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testpassword",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh User Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2MTAwMDQyNywiaWF0IjoxNjU2NjgwNDI3LCJqdGkiOiJhMDhhMTBhNmY2YmE0MGU3OWZkMjExYzUzZWYwZTdhNSIsInVzZXJfaWQiOjQsInVzZXJuYW1lIjoidGVzdHVzZXJuYW1lIiwiZW1haWwiOiJ0ZXN0ZW1haWxAdGVzdGRvbWFpbi5jb20iLCJmaXJzdG5hbWUiOiJ0ZXN0Zmlyc3QiLCJsYXN0bmFtZSI6InRlc3RsYXN0In0.1fKSrzHI0Vt1LOR95qdx2Nv-JlAr1T76RozhuCD6moE",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
