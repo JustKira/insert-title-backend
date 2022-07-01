@@ -21,8 +21,29 @@ class CreatePostingSerializer(serializers.ModelSerializer):
         model = Posting
         fields = ('company', 'position_title', 'recruiter', 'image', 'description', 'pay_range', 'location')
 
+## for testing
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ITUser
+        fields = ('id','username', 'firstname', 'lastname', 'is_superuser', 'is_active','userType','phone_number', 'birthdate', 'bio', 'undergraduate_year', 'university', 'languages', 'github_link', 'linkedin_link', 'other_website_links','contact_links', 'is_company')
 
-## https://sushil-kamble.medium.com/django-rest-framework-react-authentication-workflow-2022-part-1-a21f22b3f358
+class StudentUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ITUser
+        fields = ('phone_number', 'birthdate', 'bio', 'undergraduate_year', 'university', 'languages', 'github_link', 'linkedin_link', 'other_website_links')
+
+class RecruiterUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ITUser
+        fields = ('phone_number', 'birthdate', 'bio', 'contact_links', 'is_company')
+
+class UserTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ITUser
+        fields = ['userType']
+
+# Reference used for authentication 
+# https://sushil-kamble.medium.com/django-rest-framework-react-authentication-workflow-2022-part-1-a21f22b3f358
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod

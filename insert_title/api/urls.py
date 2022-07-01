@@ -1,15 +1,23 @@
 from django.urls import path
-from .views import PostingGetAllView, PostingGetView, PostingDeleteView, PostingAddView, PostingUpdateView, MyTokenObtainPairView, RegisterView, getRoutes
+from . import views
 from rest_framework_simplejwt.views import TokenRefreshView
 
 urlpatterns = [
-    path('postings/', PostingGetAllView.as_view()),
-    path('postings/<int:pk>', PostingGetView.as_view()),
-    path('postings/delete/<int:pk>', PostingDeleteView.as_view()),
-    path('postings/create/', PostingAddView.as_view()),
-    path('postings/update/<int:pk>', PostingUpdateView.as_view()),
-    path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('postings/', views.PostingGetAllView.as_view(), name='posting_getAll'),
+    path('postings/<int:pk>', views.PostingGetView.as_view(), name='posting_getID'),
+    path('postings/delete/<int:pk>', views.PostingDeleteView.as_view(), name='posting_delete'),
+    path('postings/create/', views.PostingAddView.as_view(), name='posting_create'),
+    path('postings/update/<int:pk>', views.PostingUpdateView.as_view(), name='posting_update'),
+    path('token/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('register/', RegisterView.as_view(), name='auth_register'),
-    path('', getRoutes)
+    path('register/', views.RegisterView.as_view(), name='auth_register'),
+    path('students/update/<int:pk>', views.StudentUserUpdateView.as_view(), name='student_update'),
+    path('recruiters/update/<int:pk>', views.RecruiterUserUpdateView.as_view(), name='recruiter_update'),
+    path('users/userType/update/<int:pk>', views.UpdateUserTypeView.as_view(), name='userType_update'),
+    path('students/delete/<int:pk>', views.DeleteStudentView.as_view(), name='students_delete'),
+    path('recruiters/delete/<int:pk>', views.DeleteRecruiterView.as_view(), name='recruiter_delete'),
+
+    ## Testing endpoints
+    path('users/', views.UserView.as_view(), name='users_getAll'),
+    path('', views.getRoutes)
 ]
