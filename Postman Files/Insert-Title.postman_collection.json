@@ -597,6 +597,340 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get CV Templates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/cv_builder",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"cv_builder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add CV Template",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "template_code",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "template_name",
+							"value": "Defolio",
+							"type": "text"
+						},
+						{
+							"key": "institutions",
+							"value": "General",
+							"type": "text"
+						},
+						{
+							"key": "credit",
+							"value": "https://www.designstub.com/product/defolio-bootstrap-5-html-resume-template/",
+							"type": "text"
+						},
+						{
+							"key": "required_data",
+							"value": "Placeholder",
+							"type": "text"
+						},
+						{
+							"key": "numberOfUses",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/cv_builder/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"cv_builder",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Render CV",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Yousef's CV",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Yousef Radwan",
+							"type": "text"
+						},
+						{
+							"key": "subtitle",
+							"value": "Data Enthusiast",
+							"type": "text"
+						},
+						{
+							"key": "about",
+							"value": "Building my skills to target data analysis and all its related tasks ranging from data acquisition and data cleaning to their respective automation techniques.",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "yradwan147.yr@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01151472079",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "127 T, Street 7T, Hadayek El Ahram, Giza",
+							"type": "text"
+						},
+						{
+							"key": "languages",
+							"value": "Arabic, English, French",
+							"type": "text"
+						},
+						{
+							"key": "skill1",
+							"value": "Python",
+							"type": "text"
+						},
+						{
+							"key": "skill1_level",
+							"value": "90%",
+							"type": "text"
+						},
+						{
+							"key": "skill2",
+							"value": "Web Development",
+							"type": "text"
+						},
+						{
+							"key": "skill2_level",
+							"value": "60%",
+							"type": "text"
+						},
+						{
+							"key": "skill3",
+							"value": "Machine Learning",
+							"type": "text"
+						},
+						{
+							"key": "skill3_level",
+							"value": "40%",
+							"type": "text"
+						},
+						{
+							"key": "skill4",
+							"value": "Embedded Systems",
+							"type": "text"
+						},
+						{
+							"key": "skill4_level",
+							"value": "30%",
+							"type": "text"
+						},
+						{
+							"key": "skill5",
+							"value": "Automation",
+							"type": "text"
+						},
+						{
+							"key": "skill5_level",
+							"value": "70%",
+							"type": "text"
+						},
+						{
+							"key": "skill6",
+							"value": "Data Analysis",
+							"type": "text"
+						},
+						{
+							"key": "skill6_level",
+							"value": "70%",
+							"type": "text"
+						},
+						{
+							"key": "portfolio1",
+							"value": "Web Development",
+							"type": "text"
+						},
+						{
+							"key": "portfolio2",
+							"value": "Data Analysis",
+							"type": "text"
+						},
+						{
+							"key": "portfolio3",
+							"value": "Machine Learning",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/cv_builder/render/1?title=Yousef's CV&name=Yousef Radwan&subtitle=Data Enthusiast&about=Building my skills to target data analysis and all its related tasks ranging from data acquisition and data cleaning to their respective automation techniques.&age=20&email=yradwan147.yr@gmail.com&phone=01151472079&address=127 T, Street 7T, Hadayek El Ahram, Giza&languages=Arabic, English, French&skill1=Python&skill1_level=90%&skill2=Web Development&skill2_level=60%&skill3=Machine Learning&skill3_level=40%&skill4=Embedded Systems&skill4_level=30%&skill5=Automation&skill5_level=70%&skill6=Data Analysis&skill6_level=70%&portfolio1=Web Development&portfolio2=Data Analysis&portfolio3=Machine Learning",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"cv_builder",
+						"render",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Yousef's CV"
+						},
+						{
+							"key": "name",
+							"value": "Yousef Radwan"
+						},
+						{
+							"key": "subtitle",
+							"value": "Data Enthusiast"
+						},
+						{
+							"key": "about",
+							"value": "Building my skills to target data analysis and all its related tasks ranging from data acquisition and data cleaning to their respective automation techniques."
+						},
+						{
+							"key": "age",
+							"value": "20"
+						},
+						{
+							"key": "email",
+							"value": "yradwan147.yr@gmail.com"
+						},
+						{
+							"key": "phone",
+							"value": "01151472079"
+						},
+						{
+							"key": "address",
+							"value": "127 T, Street 7T, Hadayek El Ahram, Giza"
+						},
+						{
+							"key": "languages",
+							"value": "Arabic, English, French"
+						},
+						{
+							"key": "skill1",
+							"value": "Python"
+						},
+						{
+							"key": "skill1_level",
+							"value": "90%"
+						},
+						{
+							"key": "skill2",
+							"value": "Web Development"
+						},
+						{
+							"key": "skill2_level",
+							"value": "60%"
+						},
+						{
+							"key": "skill3",
+							"value": "Machine Learning"
+						},
+						{
+							"key": "skill3_level",
+							"value": "40%"
+						},
+						{
+							"key": "skill4",
+							"value": "Embedded Systems"
+						},
+						{
+							"key": "skill4_level",
+							"value": "30%"
+						},
+						{
+							"key": "skill5",
+							"value": "Automation"
+						},
+						{
+							"key": "skill5_level",
+							"value": "70%"
+						},
+						{
+							"key": "skill6",
+							"value": "Data Analysis"
+						},
+						{
+							"key": "skill6_level",
+							"value": "70%"
+						},
+						{
+							"key": "portfolio1",
+							"value": "Web Development"
+						},
+						{
+							"key": "portfolio2",
+							"value": "Data Analysis"
+						},
+						{
+							"key": "portfolio3",
+							"value": "Machine Learning"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
