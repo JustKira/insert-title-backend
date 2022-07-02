@@ -88,7 +88,7 @@
               <div
                 class="page-header-image"
                 data-parallax="true"
-                style="background-image: url('images/cc-bg-1.jpg')"
+                style="background-image: url('{% static '1/cc-bg-1.jpg' %}')"
               ></div>
               <div class="container">
                 <div class="content-center">
@@ -502,7 +502,7 @@
                         <a href="#graphic-design">
                           <figure class="cc-effect">
                             <img
-                              src="images/graphic-design-3.jpg"
+                              src="{% static '1/graphic-design-3.jpg'%}"
                               alt="Image"
                             />
                             <figcaption>
@@ -520,7 +520,7 @@
                         <a href="#graphic-design">
                           <figure class="cc-effect">
                             <img
-                              src="images/graphic-design-4.jpg"
+                              src="{% static '1/graphic-design-4.jpg'%}"
                               alt="Image"
                             />
                             <figcaption>
@@ -545,7 +545,10 @@
                       >
                         <a href="#Photography">
                           <figure class="cc-effect">
-                            <img src="images/photography-1.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/photography-1.jpg'%}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Photoshoot</div>
                               <p>Photography</p>
@@ -560,7 +563,10 @@
                       >
                         <a href="#Photography">
                           <figure class="cc-effect">
-                            <img src="images/photography-3.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/photography-3.jpg'%}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Wedding Photoshoot</div>
                               <p>Photography</p>
@@ -577,7 +583,10 @@
                       >
                         <a href="#Photography">
                           <figure class="cc-effect">
-                            <img src="images/photography-2.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/photography-2.jpg'%}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Beach Photoshoot</div>
                               <p>Photography</p>
@@ -592,7 +601,10 @@
                       >
                         <a href="#Photography">
                           <figure class="cc-effect">
-                            <img src="images/photography-4.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/photography-4.jpg'%}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Nature Photoshoot</div>
                               <p>Photography</p>
@@ -852,7 +864,10 @@
                   <div class="carousel-item active">
                     <div class="row">
                       <div class="col-lg-2 col-md-3 cc-reference-header">
-                        <img src="images/reference-image-1.jpg" alt="Image" />
+                        <img
+                          src="{% static '1/reference-image-1.jpg'%}"
+                          alt="Image"
+                        />
                         <div class="h5 pt-2">Aiyana</div>
                         <p class="category">CEO / WEBM</p>
                       </div>
@@ -873,7 +888,10 @@
                   <div class="carousel-item">
                     <div class="row">
                       <div class="col-lg-2 col-md-3 cc-reference-header">
-                        <img src="images/reference-image-2.jpg" alt="Image" />
+                        <img
+                          src="{% static '1/reference-image-2.jpg'%}"
+                          alt="Image"
+                        />
                         <div class="h5 pt-2">Braiden</div>
                         <p class="category">CEO / Creativem</p>
                       </div>
@@ -894,7 +912,10 @@
                   <div class="carousel-item">
                     <div class="row">
                       <div class="col-lg-2 col-md-3 cc-reference-header">
-                        <img src="images/reference-image-3.jpg" alt="Image" />
+                        <img
+                          src="{% static '1/reference-image-3.jpg'%}"
+                          alt="Image"
+                        />
                         <div class="h5 pt-2">Alexander</div>
                         <p class="category">CEO / Webnote</p>
                       </div>
@@ -920,7 +941,9 @@
         <div class="section" id="contact">
           <div
             class="cc-contact-information"
-            style="background-image: url('images/staticmap.png')"
+            style="
+              background-image: url('{% static '1/reference-image-3.jpg'%}');
+            "
           >
             <div class="container">
               <div class="cc-contact">
@@ -1056,7 +1079,7 @@
     <script src="{% static '1/core/popper.min.js' %}"></script>
     <script src="{% static '1/core/bootstrap.min.js' %}"></script>
     <script src="{% static '1/now-ui-kit.js' %}"></script>
-    <script src="{% static '1/core/aos.js' %}"></script>
+    <script src="{% static '1/aos.js' %}"></script>
     <script src="{% static '1/scripts/main.js' %}"></script>
   </body>
 </html>
