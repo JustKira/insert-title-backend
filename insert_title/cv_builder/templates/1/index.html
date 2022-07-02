@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -13,9 +14,9 @@
       href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <link href="css/aos.css?ver=1.1.0" rel="stylesheet" />
-    <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet" />
-    <link href="css/main.css?ver=1.1.0" rel="stylesheet" />
+    <link href="{% static '1/aos.css' %}" rel="stylesheet" />
+    <link href="{% static '1/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static '1/main.css' %}" rel="stylesheet" />
     <noscript>
       <style type="text/css">
         [data-aos] {
@@ -92,7 +93,9 @@
               <div class="container">
                 <div class="content-center">
                   <div class="cc-profile-image">
-                    <a href="#"><img src="images/anthony.jpg" alt="Image" /></a>
+                    <a href="#"
+                      ><img src="{% static '1/anthony.jpg' %}" alt="Image"
+                    /></a>
                   </div>
                   <div class="h2 title">{{ name }}</div>
                   <p class="category text-white">{{ subtitle }}</p>
@@ -378,7 +381,10 @@
                       >
                         <a href="#{{ portfolio1 }}">
                           <figure class="cc-effect">
-                            <img src="images/project-1.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/project-1.jpg' %}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Recent Project</div>
                               <p>{{ portfolio1 }}</p>
@@ -393,7 +399,10 @@
                       >
                         <a href="#web-development">
                           <figure class="cc-effect">
-                            <img src="images/project-2.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/project-2.jpg' %}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Startup Project</div>
                               <p>Web Development</p>
@@ -410,7 +419,10 @@
                       >
                         <a href="#web-development">
                           <figure class="cc-effect">
-                            <img src="images/project-3.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/project-3.jpg' %}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Food Order Project</div>
                               <p>Web Development</p>
@@ -425,7 +437,10 @@
                       >
                         <a href="#web-development">
                           <figure class="cc-effect">
-                            <img src="images/project-4.jpg" alt="Image" />
+                            <img
+                              src="{% static '1/project-4.jpg' %}"
+                              alt="Image"
+                            />
                             <figcaption>
                               <div class="h4">Web Advertising Project</div>
                               <p>Web Development</p>
@@ -449,7 +464,7 @@
                         <a href="#graphic-design">
                           <figure class="cc-effect">
                             <img
-                              src="images/graphic-design-1.jpg"
+                              src="{% static '1/graphic-design-1.jpg' %}"
                               alt="Image"
                             />
                             <figcaption>
@@ -467,7 +482,7 @@
                         <a href="#graphic-design">
                           <figure class="cc-effect">
                             <img
-                              src="images/graphic-design-2.jpg"
+                              src="{% static '1/graphic-design-2.jpg' %}"
                               alt="Image"
                             />
                             <figcaption>
@@ -1037,11 +1052,11 @@
         </p>
       </div>
     </footer>
-    <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
-    <script src="js/core/popper.min.js?ver=1.1.0"></script>
-    <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
-    <script src="js/now-ui-kit.js?ver=1.1.0"></script>
-    <script src="js/aos.js?ver=1.1.0"></script>
-    <script src="scripts/main.js?ver=1.1.0"></script>
+    <script src="{% static '1/core/jquery.3.2.1.min.js' %}"></script>
+    <script src="{% static '1/core/popper.min.js' %}"></script>
+    <script src="{% static '1/core/bootstrap.min.js' %}"></script>
+    <script src="{% static '1/now-ui-kit.js' %}"></script>
+    <script src="{% static '1/core/aos.js' %}"></script>
+    <script src="{% static '1/scripts/main.js' %}"></script>
   </body>
 </html>

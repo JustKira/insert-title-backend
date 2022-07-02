@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from rest_framework_simplejwt.views import TokenRefreshView
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     ## Postings
@@ -21,7 +22,9 @@ urlpatterns = [
     path('recruiters/delete/<int:pk>', views.DeleteRecruiterView.as_view(), name='recruiter_delete'),
 
     ## CV Template
+    path('cv_builder/', views.CVTemplateGetAllView.as_view(), name='cv_getAll'),
     path('cv_builder/create/', views.CVTemplateAddView.as_view(), name='cv_create'),
+    path('cv_builder/render/<int:cv_template_id>', csrf_exempt(views.RenderCVView.as_view()), name='cv_render'),
 
     ## Testing endpoints
     path('users/', views.UserView.as_view(), name='users_getAll'),

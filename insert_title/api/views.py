@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from . import serializers
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 # Create your views here.
@@ -113,3 +114,18 @@ def getRoutes(request):
 class CVTemplateAddView(generics.CreateAPIView):
     queryset = serializers.CV_Template.objects.all()
     serializer_class = serializers.CVTemplateSerializer
+
+class CVTemplateGetAllView(generics.ListAPIView):
+    queryset = serializers.CV_Template.objects.all()
+    serializer_class = serializers.CVTemplateSerializer
+
+class RenderCVView(APIView):
+
+    def get(self, request, cv_template_id):
+        template = get_object_or_404(serializers.CV_Template, pk=cv_template_id)
+        data = template.required_data.split(',')
+        data_in = {}
+        for key in data:
+            data_in[key.strip()] = request.GET.get(key.strip())
+        print(str(data_in), str(request.GET))
+        return render(request, str(template.template_code)+"/index.html", data_in)
