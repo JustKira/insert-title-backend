@@ -1,11 +1,14 @@
 # Bring your packages onto the path
 import sys, os
+# Enable imports
 sys.path.append(os.path.abspath(os.path.join('..', 'postings')))
 sys.path.append(os.path.abspath(os.path.join('..', 'RAL')))
+sys.path.append(os.path.abspath(os.path.join('..', 'cv_builder')))
 
 from rest_framework import serializers
 from postings.models import Posting
 from RAL.models import ITUser
+from cv_builder.models import CV_Template
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.validators import UniqueValidator
@@ -85,3 +88,11 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+## CV Builder
+
+class CVTemplateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CV_Template
+        fields = ['template_code', 'template_name', 'institutions', 'credit', 'required_data', 'numberOfUses']
+
