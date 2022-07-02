@@ -15,3 +15,11 @@ class CV_Template(models.Model):
     template_name = models.TextField()
     # List form of institutions which support this document
     institutions = models.TextField()
+
+    ## Give credit to template creators to avoid issues
+    credit = models.CharField(max_length=300)
+
+    # List form of required data
+    required_data = models.TextField()
+
+    numberOfUses = models.IntegerField()
