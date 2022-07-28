@@ -13,9 +13,11 @@ class PostingGetAllView(generics.ListAPIView):
     queryset = serializers.Posting.objects.all()
     serializer_class = serializers.PostingSerializer
 
+
 class PostingGetView(generics.RetrieveAPIView):
     queryset = serializers.Posting.objects.all()
     serializer_class = serializers.PostingSerializer
+
 
 class PostingDeleteView(generics.DestroyAPIView):
     # Add Authentication
@@ -24,12 +26,14 @@ class PostingDeleteView(generics.DestroyAPIView):
     queryset = serializers.Posting.objects.all()
     serializer_class = serializers.PostingSerializer
 
+
 class PostingAddView(generics.CreateAPIView):
     # Add Authentication
     # permission_classes = [IsAdminUser]
 
     queryset = serializers.Posting.objects.all()
     serializer_class = serializers.CreatePostingSerializer
+
 
 class PostingUpdateView(generics.UpdateAPIView):
     # Add Authentication
@@ -38,10 +42,11 @@ class PostingUpdateView(generics.UpdateAPIView):
     serializer_class = serializers.PostingSerializer
 
 
-## User Authentication
+# User Authentication
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = serializers.MyTokenObtainPairSerializer
+
 
 class RegisterView(generics.CreateAPIView):
     queryset = serializers.ITUser.objects.all()
@@ -49,13 +54,20 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = serializers.RegisterSerializer
 
 
-## User Update || TODO: Missing permissions
+# User
+class GetUserView(generics.RetrieveAPIView):
+    queryset = serializers.ITUser.objects.all()
+    serializer_class = serializers.UserSerializer
+
+# User Update || TODO: Missing permissions
+
 
 class StudentUserUpdateView(generics.UpdateAPIView):
     # permission_classes = [IsAuthenticated]
 
     queryset = serializers.ITUser.objects.filter(userType='S')
     serializer_class = serializers.StudentUserSerializer
+
 
 class RecruiterUserUpdateView(generics.UpdateAPIView):
     # permission_classes = [IsAuthenticated]
@@ -64,6 +76,8 @@ class RecruiterUserUpdateView(generics.UpdateAPIView):
     serializer_class = serializers.RecruiterUserSerializer
 
 # Only done by us to add new recruiters, done automatically to add students
+
+
 class UpdateUserTypeView(generics.UpdateAPIView):
     # permission_classes = [IsAdminUser]
 
@@ -71,13 +85,14 @@ class UpdateUserTypeView(generics.UpdateAPIView):
     serializer_class = serializers.UserTypeSerializer
 
 
-## Delete Views
+# Delete Views
 
 class DeleteStudentView(generics.DestroyAPIView):
     # permission_classes = [IsAuthenticated]
 
     queryset = serializers.ITUser.objects.filter(userType='S')
     serializer_class = serializers.StudentUserSerializer
+
 
 class DeleteRecruiterView(generics.DestroyAPIView):
     # permission_classes = [IsAuthenticated]
@@ -86,14 +101,15 @@ class DeleteRecruiterView(generics.DestroyAPIView):
     serializer_class = serializers.RecruiterUserSerializer
 
 
-
-## User Preview (for testing)
+# User Preview (for testing)
 
 class UserView(generics.ListAPIView):
     queryset = serializers.ITUser.objects.all()
     serializer_class = serializers.UserSerializer
 
 # Previews available routes when a request is made to the '' endpoint
+
+
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
@@ -109,20 +125,23 @@ def getRoutes(request):
     return Response(routes)
 
 
-## CV Builder
+# CV Builder
 
 class CVTemplateAddView(generics.CreateAPIView):
     queryset = serializers.CV_Template.objects.all()
     serializer_class = serializers.CVTemplateSerializer
 
+
 class CVTemplateGetAllView(generics.ListAPIView):
     queryset = serializers.CV_Template.objects.all()
     serializer_class = serializers.CVTemplateSerializer
 
+
 class RenderCVView(APIView):
 
     def get(self, request, cv_template_id):
-        template = get_object_or_404(serializers.CV_Template, pk=cv_template_id)
+        template = get_object_or_404(
+            serializers.CV_Template, pk=cv_template_id)
         data = template.required_data.split(',')
         data_in = {}
         for key in data:
