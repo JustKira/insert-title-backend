@@ -1,13 +1,18 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser,PermissionsMixin,BaseUserManager
+from django.utils.translation import gettext_lazy as _
+
+
+
 
 # Create your models here.
 class ITUser(AbstractUser):
-
+    
     ##  Taken from old project
 
     ## Added to enable the use of python manage.py createsuperuser with added required fields
-    REQUIRED_FIELDS = ['email','firstname', 'lastname']
+    REQUIRED_FIELDS = ['username','firstname', 'lastname']
+    USERNAME_FIELD = 'email'
 
     USERTYPES = (
         ('V','VISTOR'),
@@ -15,7 +20,7 @@ class ITUser(AbstractUser):
         ('S','STUDENT'),
         ('R','RECRUITER'),
     )
-
+    email=models.EmailField(max_length=250,unique=True)
     username = models.CharField(max_length=150 , unique=True)
     firstname = models.CharField(max_length=150)
     lastname = models.CharField(max_length=150)

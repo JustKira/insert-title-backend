@@ -1,3 +1,5 @@
+from ast import arg
+from urllib import request, response
 from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from . import serializers
@@ -6,16 +8,50 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.http import JsonResponse
+
 
 
 # Create your views here.
 class PostingGetAllView(generics.ListAPIView):
     queryset = serializers.Posting.objects.all()
     serializer_class = serializers.PostingSerializer
+    
 
 class PostingGetView(generics.RetrieveAPIView):
     queryset = serializers.Posting.objects.all()
     serializer_class = serializers.PostingSerializer
+
+class QuestionAddView(generics.CreateAPIView):
+    # Add Authentication
+    # permission_classes = [IsAdminUser]
+
+    queryset = serializers.Question.objects.all()
+    serializer_class = serializers.CreateQuestionSerializer
+
+class DeleteQuestionView(generics.DestroyAPIView):
+    # Add Authentication
+    # permission_classes = [IsAdminUser]
+
+    queryset = serializers.Question.objects.all()
+    serializer_class = serializers.DeleteQuestionSerializer
+
+class QuestionGetView(generics.RetrieveAPIView):
+    # Add Authentication
+    # permission_classes = [IsAdminUser]
+
+    queryset = serializers.Question.objects.all()
+    serializer_class = serializers.QuestionSerializer
+
+class QuestionAllView(generics.ListAPIView):
+    # Add Authentication
+    # permission_classes = [IsAdminUser]
+
+    queryset = serializers.Question.objects.all()
+    serializer_class = serializers.QuestionSerializer
+
+       
+    
 
 class PostingDeleteView(generics.DestroyAPIView):
     # Add Authentication
@@ -47,6 +83,9 @@ class RegisterView(generics.CreateAPIView):
     queryset = serializers.ITUser.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = serializers.RegisterSerializer
+    def post(self,request,*args,**kwargs):
+        super(RegisterView,self).post(request,*args,**kwargs)
+        return JsonResponse({'code':'register_success'})
 
 
 ## User Update || TODO: Missing permissions
@@ -129,3 +168,31 @@ class RenderCVView(APIView):
             data_in[key.strip()] = request.GET.get(key.strip())
         print(str(data_in), str(request.GET))
         return render(request, str(template.template_code)+"/index.html", data_in)
+class NodeAddView(generics.CreateAPIView):
+    # Add Authentication
+    # permission_classes = [IsAdminUser]
+
+    queryset = serializers.Roadmap.objects.all()
+    serializer_class = serializers.CreateNodeSerializer
+
+class NodeAllView(generics.ListAPIView):
+    # Add Authentication
+    # permission_classes = [IsAdminUser]
+
+    queryset = serializers.Roadmap.objects.all()
+    serializer_class = serializers.NodeSerializer
+    
+class NodeGetView(generics.RetrieveAPIView):
+    # Add Authentication
+    # permission_classes = [IsAdminUser]
+
+    queryset = serializers.Roadmap.objects.all()
+    serializer_class = serializers.GetNodeSerializer
+
+class NodeDeleteView(generics.DestroyAPIView):
+    # Add Authentication
+    # permission_classes = [IsAuthenticated]
+
+    queryset = serializers.Roadmap.objects.all()
+    serializer_class = serializers.DeleteNodeSerializer
+
