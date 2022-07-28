@@ -17,3 +17,9 @@ class Posting(models.Model):
     location = models.CharField(max_length=1000)
     # Number of current applicants (can be used to encourage people)
     num_applicants = models.IntegerField(default=0)
+    
+
+
+    def __str__(self):
+        return self.position_title
+    

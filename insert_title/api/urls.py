@@ -26,6 +26,19 @@ urlpatterns = [
     path('cv_builder/create/', views.CVTemplateAddView.as_view(), name='cv_create'),
     path('cv_builder/render/<int:cv_template_id>', csrf_exempt(views.RenderCVView.as_view()), name='cv_render'),
 
+    ## Road Map
+
+    path('road_map/create/',views.NodeAddView.as_view(),name='road_map_create'),
+    path('road_map/',views.NodeAllView.as_view(),name='road_map_all'),
+    path('road_map/<int:pk>',views.NodeGetView.as_view(),name='road_map_one'),
+    path('road_map/delete/<int:pk>',views.NodeDeleteView.as_view(),name='road_map_delete'),
+
+    ## questions
+    path('question/create/',views.QuestionAddView.as_view(),name='question_create'),
+    path('question/<int:pk>',views.QuestionGetView.as_view(),name='question_get_one'),
+    path('question/',views.QuestionAllView.as_view(),name='question_get_all'),
+    path('question/delete/<int:pk>',views.DeleteQuestionView.as_view(),name='question_get_delete'),
+
     ## Testing endpoints
     path('users/', views.UserView.as_view(), name='users_getAll'),
     path('', views.getRoutes)

@@ -1,5 +1,6 @@
 # Bring your packages onto the path
 import sys, os
+from urllib import response
 # Enable imports
 sys.path.append(os.path.abspath(os.path.join('..', 'postings')))
 sys.path.append(os.path.abspath(os.path.join('..', 'RAL')))
@@ -13,16 +14,57 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.validators import UniqueValidator
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from roadmap.models import Roadmap
+from questions.models import Question
+
+class CreateQuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = ('id','type','question','post')
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = ('id','type','question','post')
+
+class DeleteQuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = ('id','type','question','post')
+
+
+
+
+class CreateNodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Roadmap
+        fields = ('id','road_map_name','node_name','nested_nodes','finished_node')
+
+class NodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Roadmap
+        fields = ('id','road_map_name','node_name','nested_nodes','finished_node')
+
+class GetNodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Roadmap
+        fields = ('id','road_map_name','node_name','nested_nodes','finished_node')
+
+class DeleteNodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Roadmap
+        fields = ('id','road_map_name','node_name','nested_nodes','finished_node')
 
 class PostingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posting
         fields = ('id', 'company', 'recruiter', 'image', 'description', 'creation_date', 'pay_range', 'location', 'num_applicants', 'position_title')
+    
 
 class CreatePostingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posting
-        fields = ('company', 'position_title', 'recruiter', 'image', 'description', 'pay_range', 'location')
+        fields = ('company', 'position_title', 'recruiter', 'image', 'description', 'location', 'pay_range')
 
 ## for testing
 class UserSerializer(serializers.ModelSerializer):
@@ -76,7 +118,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         if attrs['password'] != attrs['password2']:
             raise serializers.ValidationError(
                 {"password": "Password fields didn't match."})
-
         return attrs
 
     def create(self, validated_data):
@@ -86,8 +127,11 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         user.set_password(validated_data['password'])
         user.save()
-
-        return user
+        return (user)
+    
+    
+    
+        
 
 ## CV Builder
 

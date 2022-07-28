@@ -599,6 +599,51 @@
 			"response": []
 		},
 		{
+			"name": "Add roadmap",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "road_map_name",
+							"value": "Backend",
+							"type": "text"
+						},
+						{
+							"key": "node_name",
+							"value": "HTML",
+							"type": "text"
+						},
+						{
+							"key": "nested_nodes",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/postings/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"postings",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get CV Templates",
 			"request": {
 				"method": "GET",

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'cv_builder',
     'RAL',
     'roadmap',
+    'questions',
     'api.apps.ApiConfig',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'insert_title.urls'
@@ -95,6 +97,7 @@ DATABASES = {
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        
     )
 }
 
